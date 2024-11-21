@@ -9,11 +9,11 @@ class listItem {
 }
 
 // List
-const todoList = []
+var todoList = []
 
 function createNewItem() {
-    const title = 0;
-    const deadline = 0;
+    const title = document.getElementById('title').value;
+    const deadline = document.getElementById('deadline').value;
     const details = 0;
     const link = 0;
 
@@ -22,10 +22,11 @@ function createNewItem() {
 
     // Substitude empty details with explaining message
     if (details == "") {
-        details = "No details were added for this task.";
+        const details = "No details were added for this task.";
     }
 
-    todoList.push(listItem(title, deadline, details, link,));
+    todoList.push(new listItem(title, deadline, details, link,));
+    console.log(todoList[todoList.length-1])
 }
 
 function deleteItem() {
@@ -35,4 +36,3 @@ function deleteItem() {
 function editExistingItem() {
 
 }
-
