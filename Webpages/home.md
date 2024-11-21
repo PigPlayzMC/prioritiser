@@ -7,3 +7,4 @@ edit button
     add items
     edit item information
 
+share button
