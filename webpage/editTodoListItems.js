@@ -12,8 +12,8 @@ class listItem {
 var todoList = []
 
 function createNewItem() {
-    const title = document.getElementById('title').value;
-    const deadline = document.getElementById('deadline').value;
+    const title = document.getElementById('titleInput').value;
+    const deadline = document.getElementById('deadlineInput').value;
     const details = 0;
     const link = 0;
 
@@ -26,6 +26,8 @@ function createNewItem() {
     }
 
     todoList.push(new listItem(title, deadline, details, link,));
+    document.getElementById("title").textContent = todoList[todoList.length-1].title;
+    document.getElementById("deadline").textContent = todoList[todoList.length-1].deadline;
     console.log(todoList[todoList.length-1])
 }
 
