@@ -11,6 +11,31 @@ class listItem {
 // List
 var todoList = []
 
+function displayTitle(todoList, index, outputTitle) {
+    let newElement = document.createElement("div");
+    // Handles title
+    newElement.textContent = todoList[index].title; // Create a new div for each value
+    outputTitle.appendChild(newElement); // Append it to the parent div 
+}
+
+function displayDeadline(todoList, index, outputDeadline) {
+    let newElement = document.createElement("div");
+    // Handles deadline
+    newElement.textContent = todoList[index].deadline;
+    outputDeadline.appendChild(newElement);
+}
+
+function displayLatestElement(todoList) {
+    let outputTitle = document.getElementById("taskTitle");
+    let outputDeadline = document.getElementById("taskDeadline");
+
+    let index = todoList.length-1; // Selects latest entry
+
+    displayTitle(todoList, index, outputTitle );
+
+    displayDeadline(todoList, index, outputDeadline);
+}
+
 function createNewItem() {
     const title = document.getElementById('titleInput').value;
     const deadline = document.getElementById('deadlineInput').value;
@@ -26,8 +51,7 @@ function createNewItem() {
     }
 
     todoList.push(new listItem(title, deadline, details, link,));
-    document.getElementById("title").textContent = todoList[todoList.length-1].title;
-    document.getElementById("deadline").textContent = todoList[todoList.length-1].deadline;
+    displayLatestElement(todoList)
     console.log(todoList[todoList.length-1])
 }
 
