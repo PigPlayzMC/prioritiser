@@ -11,29 +11,19 @@ class listItem {
 // List
 var todoList = []
 
-function displayTitle(todoList, index, outputTitle) {
+function displayIndividualTask(todoList, index, outputTitle) {
     let newElement = document.createElement("div");
     // Handles title
-    newElement.textContent = todoList[index].title; // Create a new div for each value
+    newElement.textContent = todoList[index].title + "\n" + todoList[index].deadline; // Create a new div for each value
     outputTitle.appendChild(newElement); // Append it to the parent div 
 }
 
-function displayDeadline(todoList, index, outputDeadline) {
-    let newElement = document.createElement("div");
-    // Handles deadline
-    newElement.textContent = todoList[index].deadline;
-    outputDeadline.appendChild(newElement);
-}
-
 function displayLatestElement(todoList) {
-    let outputTitle = document.getElementById("taskTitle");
-    let outputDeadline = document.getElementById("taskDeadline");
+    let outputLocation = document.getElementById("task");
 
     let index = todoList.length-1; // Selects latest entry
 
-    displayTitle(todoList, index, outputTitle );
-
-    displayDeadline(todoList, index, outputDeadline);
+    displayIndividualTask(todoList, index, outputLocation);
 }
 
 function createNewItem() {
