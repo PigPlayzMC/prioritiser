@@ -12,10 +12,27 @@ class listItem {
 var todoList = []
 
 function displayIndividualTask(todoList, index, outputTitle) {
+    // Create a container for the task
     let newElement = document.createElement("div");
-    // Handles title
-    newElement.textContent = todoList[index].title + "\n" + todoList[index].deadline; // Create a new div for each value
-    outputTitle.appendChild(newElement); // Append it to the parent div 
+
+    // Add the title
+    newElement.textContent = todoList[index].title;
+
+    // Add a line break
+    newElement.appendChild(document.createElement("br"));
+
+    // Add the deadline
+    let deadlineText = document.createTextNode(todoList[index].deadline);
+    newElement.appendChild(deadlineText);
+
+    // Add a second line break for task separation
+    newElement.appendChild(document.createElement("br"));
+
+    // Append the new element to the output container
+    outputTitle.appendChild(newElement);
+
+    // Additional spacing
+    newElement.style.marginBottom = "10px";
 }
 
 function displayLatestElement(todoList) {
